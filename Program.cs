@@ -71,6 +71,7 @@ namespace CGPA_Calculator
                     {
                         for(int i = 1; i<= numberOfCourses; i++)
                         {
+                            //input validation bug
                             Menu.PromptUser($"Enter A Course Code For Course {i} : ");
                             string courseCode = Console.ReadLine();
                             Menu.PromptUser($"Enter a Score for {courseCode} : ");
@@ -92,7 +93,7 @@ namespace CGPA_Calculator
                     // we want to calculate grade points for all the courses that have been added
                     if (!isEmpty)
                     {
-                        var calculateCgpa = new CgpaCalculator(appDb);
+                        var calculateCgpa = new GpaCalculator(appDb.getAllCourses());
                     }
                     else
                     {
