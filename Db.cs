@@ -39,5 +39,7 @@ namespace CGPA_Calculator
         {
             return this.CourseTable;
         }
+
+        //getAllBySemesterId
     }
 }

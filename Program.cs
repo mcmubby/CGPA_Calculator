@@ -93,11 +93,13 @@ namespace CGPA_Calculator
                     // we want to calculate grade points for all the courses that have been added
                     if (!isEmpty)
                     {
-                        var calculateCgpa = new GpaCalculator(appDb.getAllCourses());
+                        var semesterCourseList = appDb.getAllCourses();
+                        var calculateGpa = GpaCalculator.GradePointAverage(semesterCourseList);
+                        menu.PrintSemesterResult(semesterCourseList, calculateGpa);
                     }
                     else
                     {
-                        Console.WriteLine("There are no courses in the DB");
+                        Menu.PromptUser("There are no courses in the DB");
                     }
                     
                     Menu.PromptUser("Back To Main Menu (b)");

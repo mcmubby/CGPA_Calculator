@@ -41,5 +41,17 @@ namespace CGPA_Calculator
 
         }
 
+        public void PrintSemesterResult(IEnumerable<Course> courseList, double[] gpa)
+        {
+            PromptUser($"\n{"Course Code",10} || {"Unit(s)",10} || {"Course Score",10} || {"Grade",5}");
+
+            foreach (var course in courseList)
+            {
+                PromptUser($"{course.CourseCode,10} {course.NumberOfUnits,10} {course.CourseScore,10} {course.Grade,15}");
+            }
+
+            Console.WriteLine($"\nTotal Points Obtained : {gpa[0]} \nTotal Number of Units : {gpa[1]} \nGrade Point Average (GPA) : {gpa[2], 0:F2}\n");
+        }
+
    }
 }

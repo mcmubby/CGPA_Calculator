@@ -12,3 +12,10 @@
 # Multiply each grade value by the number of unit(s) and sum to get total credit obtained (TCO)
 # Multiply each course unit by the highest grade value to get total obtainable credit (TOC)
 # Divide TCO by TOC (TCO/TOC)*5 to get grade point average.
+
+
+
+
+#Note
+# since the app will be expanded, it will be good to be able to calculate gpa per semester.
+# A get course list by semester Id might be needed.
