@@ -11,7 +11,7 @@ namespace CGPA_Calculator
         public double CourseScore { get; private set; }
         public int NumberOfUnits { get; private set; }
         public GradePointValue Grade { get; private set; }
-        public int GradePoint { get; private set; }
+        public double GradePoint { get; private set; }
         public double GradePointAverage { get; private set; }
 
         public Course(string code , double score , int numberOfUnits)
@@ -20,8 +20,9 @@ namespace CGPA_Calculator
             this.CourseScore = score;
             this.NumberOfUnits = numberOfUnits;
             AssignGrade(this.CourseScore);
-            this.GradePoint = (int)this.Grade * this.NumberOfUnits;
-            this.GradePointAverage = ((this.GradePoint) / (this.NumberOfUnits * (int)GradePointValue.A)) * 5;
+            this.GradePoint = (double)this.Grade * this.NumberOfUnits;
+            var _maxGrade = (int)GradePointValue.A * this.NumberOfUnits;
+            this.GradePointAverage = (double)(this.GradePoint / _maxGrade) * 5;
         }
 
         private GradePointValue AssignGrade(double score)

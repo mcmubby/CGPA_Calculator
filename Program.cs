@@ -15,6 +15,7 @@ namespace CGPA_Calculator
             Menu menu = new Menu();
             menu.setCurrentStage(1);
             Db appDb = Db.Initialize();
+            bool isEmpty = true;
             
             bool appIsRunning = true;
             // always perform this when the user is in top menu
@@ -78,6 +79,7 @@ namespace CGPA_Calculator
                             Menu.PromptUser($"Enter a number Of Units for {courseCode} : ");
                             int units = Convert.ToInt32(Console.ReadLine());
                             appDb.AddCourse(new Course(courseCode, score, units));
+                            isEmpty = false;
                         }
 
                         menu.setCurrentStage(1);
@@ -88,9 +90,23 @@ namespace CGPA_Calculator
                 while (menu.getCurrentStage() == 3)
                 {
                     // we want to calculate grade points for all the courses that have been added
-                    Console.Write("in third stage");
+                    if (!isEmpty)
+                    {
+                        var calculateCgpa = new CgpaCalculator(appDb);
+                    }
+                    else
+                    {
+                        Console.WriteLine("There are no courses in the DB");
+                    }
                     
-                    break;
+                    Menu.PromptUser("Back To Main Menu (b)");
+                    string input = Console.ReadLine();
+                    if (input.ToLower() == "b")
+                    {
+                        menu.setCurrentStage(1);
+                    }
+                    
+                    Console.Clear();
                 }
             }
         }
