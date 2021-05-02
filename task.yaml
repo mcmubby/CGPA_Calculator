@@ -1,0 +1,14 @@
+# Complete the third Stage of the CGPA calculator,
+# It must be able to calculate the gps (5,4,3,2,1 and A B C D E F) for all courses stored in the DB
+# In stage 3 , the program should print all grade point averages for all courses in a tabular manner(hint , string manipulation)
+# things to note
+# if there is no course in the DB , display an error to the user when he tries to enter stage 3
+# Hint : You need a Gpa calculator Class, a GradePoint Enum (or not)
+
+
+#TO CALCULATE CGPA => GpaCalculator
+# I need to assign grade (A,B,C,D,E, & F) to each score
+# Each grade has its value (A=5, B=4, C=3, D=2, E=1 F=0) => Enum is suitable
+# Multiply each grade value by the number of unit(s) and sum to get total credit obtained (TCO)
+# Multiply each course unit by the highest grade value to get total obtainable credit (TOC)
+# Divide TCO by TOC (TCO/TOC)*5 to get grade point average.
